@@ -1,0 +1,119 @@
+/* para usar o flexbox precisamos que os elementos envolvidos, 
+consideremos elementos filhos, estejam dentro de um elemento pai,
+no caso do nosso cabeçario, são os elementos dentor de container div*/
+
+body {
+	background-color: #fafafa;
+	font-family: Roboto,sans-serif;
+	margin: 0;
+}
+
+.container {
+	width: 94%;
+	margin: 0 auto;
+}
+
+.cabecalhoPrincipal {
+	background-color: #0064b7;
+	padding: 20px 0;
+	box-shadow: 0 2px 4px rgba(0,0,0,.5);
+}
+
+/* ^ Acima deixa a página no tema escuro ^ */
+
+.cabecalhoPrincipal-titulo {
+	font-weight: bold;
+	font-size: 2em;
+	/*margin-botton é o espaçamento esntre esse objeto e o próximo*/
+	margin-bottom: 20px;
+	text-decoration: none;
+	/*color: #fff;*/
+}
+
+.cabecalhoPrincipal-titulo-link {
+	text-decoration: none;
+	color: #eeeeee;
+	transition: color .5s cubic-bezier(.4,0,.2,1);
+}
+
+.cabecalhoPrincipal-titulo-link:hover {
+  color: #fff;
+}
+/* ^ Acima, até o próximo comentario configura o titulo ^*/
+
+.cabecalhoPrincipal-nav-link {
+	display: inline-block;
+	padding: 10px;
+	margin-bottom: 10px;
+	margin: 5px;
+	background-color: #212121;
+	/*remove a linha embaixo do link*/
+	text-decoration: none;
+	/*border-bottom: 1px solid #fff;*/
+	transition: color .5s cubic-bezier(.4,0,.2,1);
+	color: #00867d;
+	width: auto;
+}
+
+/* A animação quando o mouse passa no css*/
+.cabecalhoPrincipal-nav-link:hover {
+	color: #fff;
+}
+
+.conteudoPrincipal {
+	color: #fff;
+	text-align: justify;
+}
+
+.subtitulo {
+	text-align: left;
+}
+
+.conteudo-link-titulo {
+	text-decoration: none;
+	color: #fff;
+	transition: color .5s cubic-bezier(.4,0,.2,1);
+}
+.conteudo-link-titulo:hover {
+	color: #00867d;
+}
+
+.conteudo-link-continue {
+	text-decoration: none;
+	color: #fff;
+	
+}
+
+
+
+@media(min-width: 850px) {
+	.cabecalhoPrincipal .container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.container {
+		width: 85%;	
+		max-width: 1000px;
+	}
+
+	.cabecalhoPrincipal-nav-link {
+		padding: 3px;
+		transition: color .1s cubic-bezier(.4,0,.2,1);
+	}
+
+	.cabecalhoPrincipal-titulo {
+		margin: 0;
+	}
+
+	.cabecalhoPrincipal-nav {
+		width: auto;
+	}
+
+	.cabecalhoPrincipal-nav-link {
+		width: auto;
+		margin: 0 0 0 10px;
+	}
+}
+
