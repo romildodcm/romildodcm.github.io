@@ -1,119 +1,112 @@
-/* para usar o flexbox precisamos que os elementos envolvidos, 
-consideremos elementos filhos, estejam dentro de um elemento pai,
-no caso do nosso cabeçario, são os elementos dentor de container div*/
-
-body {
-	background-color: #fafafa;
-	font-family: Roboto,sans-serif;
-	margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+}
+body{
+    background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main{
+    height: 100vh;
+}
+.box{
+    width: 250px;
+    height: 250px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.288);
+    border-radius: 23px;
+    flex-direction: column;
+    color: white;
+    position: relative;
+    overflow: hidden;
 }
 
-.container {
-	width: 94%;
-	margin: 0 auto;
+.box img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin-bottom: 8px;
 }
 
-.cabecalhoPrincipal {
-	background-color: #0064b7;
-	padding: 20px 0;
-	box-shadow: 0 2px 4px rgba(0,0,0,.5);
+.user_name{
+    margin-bottom: 5px;
+    font-size: 1.2rem;
 }
 
-/* ^ Acima deixa a página no tema escuro ^ */
-
-.cabecalhoPrincipal-titulo {
-	font-weight: bold;
-	font-size: 2em;
-	/*margin-botton é o espaçamento esntre esse objeto e o próximo*/
-	margin-bottom: 20px;
-	text-decoration: none;
-	/*color: #fff;*/
+.skill{
+    color: rgba(255, 255, 255, 0.555);
 }
 
-.cabecalhoPrincipal-titulo-link {
-	text-decoration: none;
-	color: #eeeeee;
-	transition: color .5s cubic-bezier(.4,0,.2,1);
+.arr_container, .cancel{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: white;
+    bottom: 0;
+    right: 0;
+    border-radius: 23px 0 23px 0;
+    color: rgb(70, 70, 70);
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all .4s;
 }
 
-.cabecalhoPrincipal-titulo-link:hover {
-  color: #fff;
-}
-/* ^ Acima, até o próximo comentario configura o titulo ^*/
-
-.cabecalhoPrincipal-nav-link {
-	display: inline-block;
-	padding: 10px;
-	margin-bottom: 10px;
-	margin: 5px;
-	background-color: #212121;
-	/*remove a linha embaixo do link*/
-	text-decoration: none;
-	/*border-bottom: 1px solid #fff;*/
-	transition: color .5s cubic-bezier(.4,0,.2,1);
-	color: #00867d;
-	width: auto;
+.arr_container i{
+    transform: rotate(45deg);
 }
 
-/* A animação quando o mouse passa no css*/
-.cabecalhoPrincipal-nav-link:hover {
-	color: #fff;
+.active_arr{
+    transform: translate(80%, 80%);
 }
 
-.conteudoPrincipal {
-	color: #fff;
-	text-align: justify;
+.left_container{
+    position: absolute;
+    background: #0f2027;
+    width: 100%;
+    height: 100%;
+    border-radius: 23px;
+    padding: 40px 0 0 20px;
+    transition: all .4s;
 }
 
-.subtitulo {
-	text-align: left;
+.off {
+    transform: translate(-80%, -80%) rotate(90deg);
 }
 
-.conteudo-link-titulo {
-	text-decoration: none;
-	color: #fff;
-	transition: color .5s cubic-bezier(.4,0,.2,1);
-}
-.conteudo-link-titulo:hover {
-	color: #00867d;
+.active{
+    transform: translate(0) rotate(0);
 }
 
-.conteudo-link-continue {
-	text-decoration: none;
-	color: #fff;
-	
+.left_container p{
+    margin-bottom: 15px;
+    font-size: 1.2rem;
 }
 
-
-
-@media(min-width: 850px) {
-	.cabecalhoPrincipal .container {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	.container {
-		width: 85%;	
-		max-width: 1000px;
-	}
-
-	.cabecalhoPrincipal-nav-link {
-		padding: 3px;
-		transition: color .1s cubic-bezier(.4,0,.2,1);
-	}
-
-	.cabecalhoPrincipal-titulo {
-		margin: 0;
-	}
-
-	.cabecalhoPrincipal-nav {
-		width: auto;
-	}
-
-	.cabecalhoPrincipal-nav-link {
-		width: auto;
-		margin: 0 0 0 10px;
-	}
+.left_container .skills div{
+    display: inline-block;
+    color: rgb(155, 155, 155);
+    border: 1px solid rgb(155, 155, 155);
+    padding: 5px 10px;
+    margin: 4px 4px 4px 0;
 }
 
+.left_container .icons {
+    font-size: 1.6rem;
+    margin-top: 10px;
+}
+
+.left_container .icons i{
+    color: #cfcfcf;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: all .4s;
+}
+.left_container .icons i:hover{
+    color: #2c5364;
+}
