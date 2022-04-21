@@ -1,0 +1,9 @@
+body {
+  background: linear-gradient(to right, #0080ff, #1e1e64);
+}
+
+body a{
+  text-decoration: none;
+  color: #1e1e64;
+}
+
