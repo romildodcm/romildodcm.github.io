@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Requisição de IP</title>
+</head>
+<body>
+  <label for="ipInput">Insira o endereço IP:</label>
+  <input type="text" id="ipInput">
+  <button onclick="fazerRequisicao()">Enviar Requisição</button>
+
+  <div>
+    <h2>Request:</h2>
+    <pre id="request"></pre>
+  </div>
+
+  <div>
+    <h2>Response:</h2>
+    <pre id="response"></pre>
+  </div>
+
+  <script>
+    function fazerRequisicao() {
+      const ip = document.getElementById('ipInput').value;
+      const url = `http://${ip}/api/v1/Settings`;
+
+      const requestOptions = {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent': navigator.userAgent,
+          // Você pode adicionar outros headers relevantes aqui, se necessário
+        },
+      };
+
+      // Atualizando área de request com detalhes
+      document.getElementById('request').innerText = `Request URL: ${url}\n\nRequest Method: ${requestOptions.method}\n\nHeaders: ${JSON.stringify(requestOptions.headers, null, 2)}`;
+
+      fetch(url, requestOptions)
+        .then(response => {
+          // Atualizando área de response com detalhes
+          const responseDetails = {
+            'Status': response.status,
+            'Status Text': response.statusText,
+            'Headers': response.headers,
+          };
+          document.getElementById('response').innerText = `Response Status: ${response.status} ${response.statusText}\n\nHeaders: ${JSON.stringify(response.headers, null, 2)}\n\nDetails: ${JSON.stringify(responseDetails, null, 2)}`;
+
+          if (!response.ok) {
+            if (response.status === 0 || response.status === 403) {
+              throw new Error('Requisição negada por CORS');
+            }
+            throw new Error('Erro na requisição');
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Adicionando o corpo da resposta na área de response
+          document.getElementById('response').innerText += `\n\nResponse Body:\n${JSON.stringify(data, null, 2)}`;
+        })
+        .catch(error => {
+          console.error('Erro:', error);
+
+          // Atualizando área de response com mensagem de erro
+          document.getElementById('response').innerText = error.message;
+        });
+    }
+  </script>
+</body>
+</html>
